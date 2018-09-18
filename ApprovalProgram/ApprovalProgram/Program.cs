@@ -14,7 +14,7 @@ namespace ApprovalProgram
             // What is your age?
             Console.WriteLine("What is your age?");
             string ageInput = Console.ReadLine();
-            int userAge = Convert.ToUInt16(ageInput);
+            int userAge = Convert.ToByte(ageInput);
             Console.WriteLine();
 
             // Have you ever had a DUI?
@@ -26,7 +26,7 @@ namespace ApprovalProgram
             // More than 3 speeding tickets?
             Console.WriteLine("How many speeding tickets do you have?");
             string ticketInput = Console.ReadLine();
-            int userTicket = Convert.ToUInt16(ticketInput);
+            int userTicket = Convert.ToByte(ticketInput);
 
             //Approved for insurance?
             Console.WriteLine();
