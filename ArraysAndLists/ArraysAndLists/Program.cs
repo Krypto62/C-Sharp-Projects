@@ -7,7 +7,7 @@ namespace ArraysAndLists
     {
         static void Main()
         {
-            //1. Create a one-dimensional Array of strings. Ask the user to select an index of the Array and then display the string at that index on the screen.
+            //Create a one-dimensional Array of strings. Ask the user to select an index of the Array and then display the string at that index on the screen.
 
             Console.WriteLine();
             string[] stringArray = new[] { "1 Dozen Eggs", "1 loaf of Bread", "1 8oz Yogurt", "1 Can of Soda", "1 8oz Chips", "1 Fresh Tomato" };
@@ -19,7 +19,7 @@ namespace ArraysAndLists
             Console.WriteLine("You have won: " + (stringArray[userNum1]));
             Console.WriteLine();
 
-            //2.Create a one-dimensional Array of integers.Ask the user to select an index of the Array and then display the integer at that index on the screen.
+            //Create a one-dimensional Array of integers. Ask the user to select an index of the Array and then display the integer at that index on the screen.
 
             int[] numArray = { 5, 10, 20, 30, 40 };
 
@@ -30,9 +30,8 @@ namespace ArraysAndLists
             Console.WriteLine("You selected #" + userNum2);
             Console.WriteLine("Good news! We have decided to add " + (numArray[userNum2]) + " dollars to your snack budget:");
 
-            //3.Add in a message that displays when the user selects an index that doesn’t exist.
+            //Create a List of strings. Ask the user to select an index of the List and then display the content at that index on the screen.
 
-            //4.Create a List of strings. Ask the user to select an index of the List and then display the content at that index on the screen.
             Console.WriteLine();
             List<string> nameList = new List<string>();
             nameList.Add("Jim");
@@ -44,12 +43,11 @@ namespace ArraysAndLists
             nameList.Add("Erica");
             Console.WriteLine("Our current team consists of the following persons: \n \t 0. Jim \n \t 1. Susan \n \t 2. Scott \n \t 3. Jennifer \n \t 4. George \n \t 5. John \n \t 6. Erica");
             Console.WriteLine();
-            Console.WriteLine("     Who would you like to donate your snack to? Pick a number...");
+            Console.WriteLine("Who would you like to donate your snack to? Pick a number...");
             string userNameInput = Console.ReadLine();
             int NumInput = Convert.ToByte(userNameInput);
             Console.WriteLine(nameList[NumInput] + " will be very happy :)");
       
-
             Console.ReadLine();
         }
     }
