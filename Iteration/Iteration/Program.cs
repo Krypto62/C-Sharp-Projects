@@ -58,7 +58,7 @@ class Program
             if (dogs[i] == input)
             {
                 Console.WriteLine(dogs[i] + " is a great dog and is at index " + i);
-                //Console.ReadLine();
+                break;
 
             }
 
@@ -76,6 +76,7 @@ class Program
         Console.ReadLine();
 
         //8.Add code to that above loop that stops it from executing once a match has been found.
+        //Satisfied this by adding  ***break;*** to the if statement above
 
         //9.Create a List of strings that has at least two identical strings in the List. Ask the user to select text to search for in the List.Create a loop that iterates through the loop and then displays the indices of the array that contain matching text on the screen.
 
