@@ -48,44 +48,109 @@ class Program
 
         //6.Create a List of strings where each item in the list is unique. Ask the user to select text to search for in the List.
         //Create a loop that iterates through the loop and then displays the index of the array that contains matching text on the screen.
-        Console.WriteLine("A few famous dogs are: Lassie, Toto, Pluto, and Snoopy");
-        Console.WriteLine("Please enter the name of one of them to search for");
-        string input = Console.ReadLine();
+        //Console.WriteLine("A few famous dogs are: Lassie, Toto, Pluto, and Snoopy");
+        //Console.WriteLine("Please enter the name of one of them to search for");
+        //string input = Console.ReadLine();
 
-        string[] dogs = { "Lassie", "Toto", "Pluto", "Snoopy" };
-        for (int i = 0; i < dogs.Length; i++)
-        {
-            if (dogs[i] == input)
-            {
-                Console.WriteLine(dogs[i] + " is a great dog and is at index " + i);
-                break;
+        //string[] dogs = { "Lassie", "Toto", "Pluto", "Snoopy" };
+        //for (int i = 0; i < dogs.Length; i++)
+        //{
+        //    if (dogs[i] == input)
+        //    {
+        //        Console.WriteLine(dogs[i] + " is a great dog and is at index " + i);
+        //        //8.Add code to the loop that stops it from executing once a match has been found.
+        //        break;
+        //    }
 
-            }
+        //    //7.Add code to the loop that tells a user if they put in text that isn’t in the List.
+        //    else if (dogs[i] != input)
+        //    {
+        //        Console.WriteLine("Sorry, that name is not in the list above");
+        //        Console.WriteLine(dogs[i] + " is at index " + i ); 
+        //    }  
+        //}
 
-            //7.Add code to that above loop that tells a user if they put in text that isn’t in the List.
 
-            else if (dogs[i] != input)
-            {
-                Console.WriteLine(dogs[i] + " is at index " + i );
-                //goto done;
-            }
-           
-        }
-    //done:
-        //Console.WriteLine("End");
-        Console.ReadLine();
+        //Console.ReadLine();
 
-        //8.Add code to that above loop that stops it from executing once a match has been found.
-        //Satisfied this by adding  ***break;*** to the if statement above
 
-        //9.Create a List of strings that has at least two identical strings in the List. Ask the user to select text to search for in the List.Create a loop that iterates through the loop and then displays the indices of the array that contain matching text on the screen.
+        //9.Create a List of strings that has at least two identical strings in the List.
+        //Ask the user to select text to search for in the List. Create a loop that iterates through the loop
+        //and then displays the indices of the array that contain matching text on the screen.
 
+        //Console.WriteLine("Please enter the name of your gas station");
+        //string name = Console.ReadLine();
+
+        //List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
+        //List<string> matching = new List<string>();
+
+        //foreach (string station in stations)
+        //{
+        //    if (station == name)
+        //    {
+        //        matching.Add(station);
+        //        Console.WriteLine(station + " is located at index " + matching.Count);
+
+        //    }
+
+        //    //Console.WriteLine("You entered " + name + " which is at" + " index " + matching.Count);
+
+        //    //else if
+        //    //{
+        //    //    Console.WriteLine("I do not have a listing for that name at index " + matching.Count );
+        //    //    //break;
+        //    //}
+        //}
+
+        //Console.ReadLine();
 
         //10.Add code to that above loop that tells a user if they put in text that isn’t in the List.
 
-        //11.Create a List of strings that has at least two identical strings in the List. Create a foreach loop that evaluates each item in the list, and displays a message showing the string and whether or not it has already appeared in the list.
+        //Console.WriteLine("Please enter the name of your gas station");
+        //string name = Console.ReadLine();
+
+        //List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
+
+        //foreach (string station in stations)
+        //{
+        //    if (name != station)
+            
+        //        {
+        //            Console.WriteLine("You entered a name not in my list ");
+        //        }   
+        //}
+        //Console.WriteLine("Press enter to exit");
+        //Console.ReadLine();
 
 
+        //11.Create a List of strings that has at least two identical strings in the List.
+        //Create a foreach loop that evaluates each item in the list, and displays a message showing the string
+        //and whether or not it has already appeared in the list.
+
+        Console.WriteLine("Please enter the name of your gas station");
+        string name = Console.ReadLine();
+
+        List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
+        //List<string> matching = new List<string>();
+
+        foreach (string station in stations)
+        {
+           if (stations.Contains(name))
+            {
+                Console.WriteLine("I found a match to " + name + " " + station.IndexOf(name));
+                break;
+            }
+            if (name != station)
+            {
+                Console.WriteLine("That name not found");
+                break;
+            }
+
+        }
+        
+        //Console.WriteLine(name + " is located at index " + matching.Count + " of my matching list and index " + stations.Count + " of my stations list");
+        Console.WriteLine("Press enter to exit");
+        Console.ReadLine();
 
     }
 }
