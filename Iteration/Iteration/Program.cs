@@ -131,20 +131,30 @@ class Program
         string name = Console.ReadLine();
 
         List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
-        //List<string> matching = new List<string>();
+        List<string> tempList = new List<string>();
 
         foreach (string station in stations)
         {
-           if (stations.Contains(name))
+            if (!tempList.Contains(station))
             {
-                Console.WriteLine("I found a match to " + name + " " + station.IndexOf(name));
-                break;
+                tempList.Add(station);
+                tempList.ForEach(Console.WriteLine);
             }
-            if (name != station)
-            {
-                Console.WriteLine("That name not found");
-                break;
-            }
+                //foreach (string item in tempList)
+                //{ 
+                //Console.WriteLine(item);
+                ////temp.Add(num);
+                //}
+               
+                //Console.WriteLine(tempList);
+                //Console.WriteLine("I did not find a match to " + name + " " + station.IndexOf(name));
+                //break;
+            
+            //else
+            //{
+            //    Console.WriteLine("That name not found");
+            //    //break;
+            
 
         }
         
