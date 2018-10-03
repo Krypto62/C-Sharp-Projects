@@ -140,21 +140,21 @@ class Program
                 tempList.Add(station);
                 tempList.ForEach(Console.WriteLine);
             }
-                //foreach (string item in tempList)
-                //{ 
-                //Console.WriteLine(item);
-                ////temp.Add(num);
-                //}
-               
-                //Console.WriteLine(tempList);
-                //Console.WriteLine("I did not find a match to " + name + " " + station.IndexOf(name));
-                //break;
-            
-            //else
-            //{
-            //    Console.WriteLine("That name not found");
-            //    //break;
-            
+            //foreach (string item in tempList)
+            //{ 
+            //Console.WriteLine(item);
+            ////temp.Add(num);
+            //}
+
+            //Console.WriteLine(tempList);
+            //Console.WriteLine("I did not find a match to " + name + " " + station.IndexOf(name));
+            //break;
+
+            else
+            {
+            Console.WriteLine("That name not found");
+                //    //break;
+            }
 
         }
         
