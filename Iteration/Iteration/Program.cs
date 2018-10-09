@@ -114,7 +114,7 @@ class Program
         //foreach (string station in stations)
         //{
         //    if (name != station)
-            
+
         //        {
         //            Console.WriteLine("You entered a name not in my list ");
         //        }   
@@ -127,37 +127,45 @@ class Program
         //Create a foreach loop that evaluates each item in the list, and displays a message showing the string
         //and whether or not it has already appeared in the list.
 
+        //-----------
         Console.WriteLine("Please enter the name of your gas station");
         string name = Console.ReadLine();
+        Console.WriteLine("You entered " + name);
 
         List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
-        List<string> tempList = new List<string>();
-
+        List<string> tempStations = new List<string>();
+        bool isInTempStations = (tempStations.Contains(name));
+        
         foreach (string station in stations)
         {
-            if (!tempList.Contains(station))
+            if (!tempStations.Contains(station))
             {
-                tempList.Add(station);
-                tempList.ForEach(Console.WriteLine);
+                tempStations.Add(station);
+                //break;
             }
-            //foreach (string item in tempList)
-            //{ 
-            //Console.WriteLine(item);
-            ////temp.Add(num);
-            //}
 
-            //Console.WriteLine(tempList);
-            //Console.WriteLine("I did not find a match to " + name + " " + station.IndexOf(name));
+            if (isInTempStations == true)
+            {
+
+            }
+
+            else //(tempStations.Contains(station))
+            {
+                Console.WriteLine(station + " appears more than once in my list.");
+            }
+
+            //else
+            //{
+            //    tempStations.ForEach(Console.WriteLine);
+            //}
+ 
+
             //break;
 
-            else
-            {
-            Console.WriteLine("That name not found");
-                //    //break;
-            }
-
         }
+        //------------
         
+
         //Console.WriteLine(name + " is located at index " + matching.Count + " of my matching list and index " + stations.Count + " of my stations list");
         Console.WriteLine("Press enter to exit");
         Console.ReadLine();
