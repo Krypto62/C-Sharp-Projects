@@ -127,46 +127,26 @@ class Program
         //Create a foreach loop that evaluates each item in the list, and displays a message showing the string
         //and whether or not it has already appeared in the list.
 
-        //-----------
-        Console.WriteLine("Please enter the name of your gas station");
-        string name = Console.ReadLine();
-        Console.WriteLine("You entered " + name);
-
         List<string> stations = new List<string>() { "Shell", "Arco", "Exxon", "Texaco", "Arco", "Shell" };
         List<string> tempStations = new List<string>();
-        bool isInTempStations = (tempStations.Contains(name));
         
         foreach (string station in stations)
         {
             if (!tempStations.Contains(station))
             {
+                Console.WriteLine(station + " is a station in my list");
                 tempStations.Add(station);
-                //break;
+                Console.WriteLine();
             }
 
-            if (isInTempStations == true)
-            {
-
-            }
-
-            else //(tempStations.Contains(station))
+            else if (tempStations.Contains(station))
             {
                 Console.WriteLine(station + " appears more than once in my list.");
+                Console.WriteLine();
             }
 
-            //else
-            //{
-            //    tempStations.ForEach(Console.WriteLine);
-            //}
- 
-
-            //break;
-
         }
-        //------------
-        
 
-        //Console.WriteLine(name + " is located at index " + matching.Count + " of my matching list and index " + stations.Count + " of my stations list");
         Console.WriteLine("Press enter to exit");
         Console.ReadLine();
 
