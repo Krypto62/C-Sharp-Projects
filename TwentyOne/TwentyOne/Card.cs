@@ -13,6 +13,7 @@ namespace TwentyOne
             Suit = "Spades";
             Face = "Two";
         }
+        //Items below are "properties"
         public string Suit { get; set; }
         public string Face { get; set; }
     }

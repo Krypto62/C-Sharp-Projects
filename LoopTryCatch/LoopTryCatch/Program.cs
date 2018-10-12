@@ -40,8 +40,6 @@ namespace LoopTryCatch
             Console.Read();
 
 
-
-
             }
     }
 }
