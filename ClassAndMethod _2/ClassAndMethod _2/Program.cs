@@ -19,6 +19,7 @@ namespace ClassAndMethod__2
 
             Console.WriteLine("Thank you. Now please enter another number");
             int num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
 
         //3. Call the method in the class, passing in two numbers.
             DoStuff.Add (500, num1, num2);
