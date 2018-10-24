@@ -23,6 +23,12 @@ namespace LoopTryCatch
                 int[] intList = { 5, 10, 15, 20, 25, 30, 35, 40 };
                 Console.WriteLine("Please enter a number");
                 double input = Convert.ToDouble(Console.ReadLine());
+                if (input == 0)
+                {
+                    Console.WriteLine("Number cannot be null");
+                    Console.ReadLine();
+                    throw new ArgumentException("Number cannot be null");
+                }
                 Console.WriteLine();
 
                 for (int i = 0; i < intList.Length; i++)
@@ -34,6 +40,7 @@ namespace LoopTryCatch
             }
             catch (FormatException ex)
             {
+                
                 Console.WriteLine(ex.Message + " Please be sure to enter only a number");
             }
 

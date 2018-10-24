@@ -9,7 +9,7 @@ namespace ClassAndMethod_3
 
     public class Program
     {
-        //QUESTION: WHICH IS CONSIDERED INSTANTIATING THE CLASS? LINE 23 OR LINE 29?
+        //QUESTION: WHICH IS CONSIDERED INSTANTIATING THE CLASS? LINE 23 OR LINE 30?
         public static void Main(string[] args)
         {
             int Susan = Math.TestNum();
@@ -20,16 +20,18 @@ namespace ClassAndMethod_3
             //2. In the Main() method of the console app, instantiate the class and call the one method,
             //passing in an integer, such as 12. Then display the result to the screen.
 
-            //..Car myCar = new Car();
-            //..Console.WriteLine();
-            //..myCar.Year = 2015;
-            //..Console.WriteLine("After instantiating the Program class, I am passing in an integer, which is the year of my car - " + myCar.Year);
-            //..Console.ReadLine();
+            Car myCar = new Car();
+            Console.WriteLine();
+            myCar.Year = 2015;
+            Console.WriteLine("After instantiating the Program class, I am passing in an integer, which is the year of my car - " + myCar.Year);
+            Console.ReadLine();
 
+/*
             int myCar = Car.TestNum2(12);
             Console.WriteLine();
             Console.WriteLine("In " + myCar + " a car bought today will be 12 years old");
             Console.ReadLine();
+**/
         }
 
     }
@@ -51,11 +53,13 @@ namespace ClassAndMethod_3
         //3. Add a second method to the class, with the same name, that will take in a decimal,
     }
 
-    //..class Car
-    //..{
-    //..     public int Year { get; set; }
+    class Car
+    {
+         public int Year { get; set; }
 
-    //..}
+    }
+
+/*
     public class Car
     {
         public static int TestNum2(int num4)
@@ -63,4 +67,5 @@ namespace ClassAndMethod_3
         return (2018 + num4);
         }
     }
+**/
 }
