@@ -9,63 +9,35 @@ namespace ClassAndMethod_3
 
     public class Program
     {
-        //QUESTION: WHICH IS CONSIDERED INSTANTIATING THE CLASS? LINE 23 OR LINE 30?
         public static void Main(string[] args)
         {
-            int Susan = Math.TestNum();
-            Console.WriteLine();
-            Console.WriteLine("Your number multiplied by 50 is " + Susan);
-            Console.ReadKey();
+            Car myCar = new Car();
 
             //2. In the Main() method of the console app, instantiate the class and call the one method,
             //passing in an integer, such as 12. Then display the result to the screen.
 
-            Car myCar = new Car();
             Console.WriteLine();
-            myCar.Year = 2015;
-            Console.WriteLine("After instantiating the Program class, I am passing in an integer, which is the year of my car - " + myCar.Year);
+            int num4 = 12;
+            Console.WriteLine("In " + myCar.Ford(num4) + " a car bought today will be 12 years old");
+            Console.WriteLine();
+
+            //4. In the Main() method of the console app, instantiate
+            //the class and call the second method, passing in a decimal.
+            //Display the result to the screen.
+
+            float num5 = 10.5f;
+            Console.WriteLine("10 pounds torque will yield " + myCar.Ford(num5) + " pounds of pressure");
             Console.ReadLine();
 
-/*
-            int myCar = Car.TestNum2(12);
+            //6. In the Main() method of the console app, instantiate the class and
+            //call the third method, passing in a string that equates to an integer.
+            //Display the result to the screen.
+
+            string color = "1";
             Console.WriteLine();
-            Console.WriteLine("In " + myCar + " a car bought today will be 12 years old");
+            Console.WriteLine("based on your input of " + myCar.Ford(color));
             Console.ReadLine();
-**/
-        }
-
-    }
-    //1. Create a class. In that class, create a method that will take in an integer,
-    //do a math operation to it and then return the answer as an integer.
-
-
-    public class Math
-    {
-        public static int TestNum()
-        {
-            int num1 = 50;
-            Console.WriteLine("Please enter a number and I will multiply it by 50");
-            int input1 = Convert.ToByte(Console.ReadLine());
-            int result = input1 * num1;
-            return result;
-        }
-
-        //3. Add a second method to the class, with the same name, that will take in a decimal,
-    }
-
-    class Car
-    {
-         public int Year { get; set; }
-
-    }
-
-/*
-    public class Car
-    {
-        public static int TestNum2(int num4)
-        {
-        return (2018 + num4);
         }
     }
-**/
+
 }
