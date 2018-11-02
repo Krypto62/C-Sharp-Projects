@@ -1,9 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace ClassAndMethod_4
 {
@@ -13,7 +8,7 @@ namespace ClassAndMethod_4
 
     public class Stats
     {
-        public int ERA(int num1, [Optional] int num2)
+        public int ERA(int num1, int num2 = 0)
         {
         int num3 = 20;
         int calc = (num1 * num3) + num2;

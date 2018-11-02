@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassAndMethod_4
 {
@@ -11,33 +7,26 @@ namespace ClassAndMethod_4
         public static void Main(string[] args)
         {
 
-            //2.In the Main() method of the console app, instantiate the class.
+            //2. In the Main() method of the console app, instantiate the class.
             Stats myStats = new Stats();
 
-            //3.Ask the user to input two numbers, one at a time.
+            //3. Ask the user to input two numbers, one at a time.
             //Let them know they need not enter anything for the second number.
-            Console.WriteLine("Please enter either one or two numbers and press \"Enter\"");
-            
-            string[] input = Console.ReadLine().Split();
-            
-            //Parse element 0
-            int num1 = int.Parse(input[0]);
+            Console.WriteLine("Please enter a number and press \"Enter\"");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("You may enter another number or just press \"Enter\" for none.");
+            string num2 = Console.ReadLine();
 
-            //I'm trying to allow for a missing second number and then tell the code
-            //to use a number 1 instead of nothing.
-            if (int.Parse(input[1]) == IsNullOrEmpty())
+            if (num2 == "")
             {
-                int num2 = int.Parse(1);
+                Console.WriteLine("The result of the equation is " + myStats.ERA(num1));
+            }
+            else
+            {
+                Console.WriteLine("The result of the equation is " + myStats.ERA(num1, Convert.ToInt32(num2)));
             }
 
-            //Parse element 1
-            int num2 = int.Parse(input[1]);
-            Console.WriteLine();
-            Console.WriteLine("When we multiply your first number by 20 and then add \nyour second number (if you entered one) to it, we get " + myStats.ERA(num1, num2));
             Console.ReadLine();
-            
-            
-
         }
     }
 }
