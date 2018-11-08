@@ -1,14 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AbstractClass
 {
     // 3. Create another class called Employee and have it inherit from the Person class.
-    class Employee : Person
+
+    // Step 126 #2. Have your Employee class from the previous drill inherit that interface
+
+    class Employee : Person, IQuittable
     {
-    
+        public void Quit()
+        {
+            string name = FirstName + " " + LastName;
+            Console.WriteLine(name);
+            Console.ReadLine();
+        }
     }
 }
