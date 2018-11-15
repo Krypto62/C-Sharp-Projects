@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lambda
 {
@@ -50,11 +47,9 @@ namespace Lambda
             //3. Do the same thing again, but this time with a lambda expression.
  
             var newList = list.Where(i => i.FirstName == "Joe").ToList();
-            Each(list, i => Console.WriteLine(i));
-            //foreach(newList in item => 
-            //Console.WriteLine(newList, i));
-            Console.ReadLine();
+            newList.ForEach(i => Console.WriteLine(i.FirstName + " " + i.LastName + " " + i.Age));
 
+            Console.ReadLine();
         }
     }
 }
