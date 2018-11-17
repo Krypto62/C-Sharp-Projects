@@ -10,63 +10,38 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
-            deck = Shuffle(deck, 3);
-            //deck = Shuffle(deck, 3);
 
-            foreach (Card card in deck.Cards)
+
+            Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name");
+            string playerName = Console.ReadLine();
+            Console.WriteLine("And how much money did you bring today?");
+            int bank = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello, {0}. Would you like to play a game of 21 right now?", playerName);
+            string answer = Console.ReadLine().ToLower();
+            if (answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya")
             {
-                Console.WriteLine(card.Face + " of " + card.Suit);
-            }
-            Console.WriteLine(deck.Cards.Count);
-            Console.ReadLine();
-        }
+                //Player object with 2 values: playerName and bank. "We created a player"
+                Player player = new Player(playerName, bank); //if user wants to play, we initialize him with playerName and bank, which is the beginning balance.
 
-        public static Deck Shuffle(Deck deck, int times = 1)
-        {
-            for (int i = 0; i < times; i++)
-            {
-                List<Card> TempList = new List<Card>();
-                Random random = new Random();
+                //We created a player, now we create a game.
+                Game game = new TwentyOneGame(); //polymorphism happening here. exposes those operators we overloaded earlier
 
-                while (deck.Cards.Count > 0)
+                game += player; //We are adding player to the game
+                player.isActivelyPlaying = true; //used in "while" loop... While player is actively playing, play the game
+                
+                //checks if player is wanting to still play and also has enough money to play.
+                //As long as these two conditions are met, this loop will continue.
+                while (player.isActivelyPlaying && player.Balance > 0)
                 {
-                    int randomIndex = random.Next(0, deck.Cards.Count);
-                    TempList.Add(deck.Cards[randomIndex]);
-                    deck.Cards.RemoveAt(randomIndex);
+                    game.Play();
                 }
-            deck.Cards = TempList;
-
+                game -= player; //When user exits the "While" loop we remove him from the game
+                Console.WriteLine("Thank you for playing!");
             }
-            
-            return deck;
-        }
-        //public static Deck Shuffle(Deck deck, int times)
-        //{
-        //    for (int i = 0; i < times; i++) 
-        //    {
-        //    deck = Shuffle(deck);
-            
-        //    }
-        //    return deck;
-        //}
-
-
-
-
-            //deck.Cards = new List<Card>();
-            
-            //Card cardOne = new Card();
-            //cardOne.Face = "Queen";
-            //cardOne.Suit = "Spades";
-
-            //deck.Cards.Add(cardOne);
-
-            //Console.WriteLine(deck.Cards[0].Face + " of " + deck.Cards[0].Suit);
-            //Console.ReadLine();
-
-
-
-        
+            //when the player exits, he gets this message...
+            //if the player answers "no" to the above, he also gets this message.
+            Console.WriteLine("Feel free to look around the casino. Bye for now");
+            Console.Read();
+        }   
     }
 }
