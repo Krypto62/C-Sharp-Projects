@@ -25,7 +25,7 @@ namespace TwentyOne
             using (StreamWriter file = new StreamWriter(@"C:\Users\scfow\logs\log.txt", true))
             {
                 file.WriteLine(card); //Write (append) card to the file
-            }
+            } //StreamWriter cleans itself up when it hits this ending bracket
             Deck.Cards.RemoveAt(0);
         }
     }

@@ -17,8 +17,7 @@ namespace File_IO
             //3. Print the text file back to the user.
             Console.WriteLine("\nYou entered " + File.ReadAllText(@"C:\Users\scfow\logs\File_IO.txt"));
             Console.ReadLine();
-            
-
+           
         }
     }
 }
