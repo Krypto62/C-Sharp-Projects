@@ -15,12 +15,12 @@ namespace DateTimeAndTimeSpan
             Console.WriteLine(now);
             Console.WriteLine();
 
-            //2.Asks the user for a number.
+            //2. Asks the user for a number.
             Console.WriteLine("Please enter an integer\n");
             //DateTime input = Convert.ToDateTime(Console.ReadLine());
             int input = Convert.ToInt32(Console.ReadLine());
 
-            //3.Prints to te console the exact time it will be in X hours,
+            //3. Prints to te console the exact time it will be in X hours,
             //X being the number the user entered in step 2.
 
             DateTime futureTime = DateTime.Now.AddHours(input);
