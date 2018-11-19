@@ -68,6 +68,43 @@ namespace TwentyOne
             if (value == 21) return true; //Has BlackJack
             else return false; //No BlackJack
         }
-            
+
+        public static bool IsBusted(List<Card> Hand)
+        {
+            int value = GetAllPossibleHandValues(Hand).Min(); //If better is over the minimum then he is busted
+            if (value > 21) return true;
+            else return false;
+        }
+
+        public static bool ShouldDealerStay(List<Card> Hand)
+        {
+            int[] possibleHandValues = GetAllPossibleHandValues(Hand);
+            foreach (int value in possibleHandValues)
+            {
+                if (value > 16 && value < 22) //If in this range dealer must stay
+                {
+                    return true;
+                }                 
+            }
+            return false; //If it makes it down here, dealer shouldn't stay
+        }
+        
+        public static bool? CompareHands(List<Card> PlayerHand, List<Card> DealerCard)
+        {
+            //Get int array of all possible players by passing in the player's hand. Do the same for dealer.
+            int[] playerResults = GetAllPossibleHandValues(PlayerHand);
+            int[] dealerResults = GetAllPossibleHandValues(DealerHand);
+
+            //Give me the player results where the items are less than 22 (highest possible score w/o busting).
+            int playerScore = playerResults.Where(x => x < 22).Max();
+
+            //Give me the dealer results where the items are less than 22 (highest possible score w/o busting).
+            int dealerScore = dealerResults.Where(x => x < 22).Max();
+
+            //CompareHands the two scores
+            if (playerScore > dealerScore) return true; //Player beats the dealer
+            else if (playerScore < dealerScore) return false; //Dealer beats the player
+            else return null; //Equal score
+        }
     }
 }

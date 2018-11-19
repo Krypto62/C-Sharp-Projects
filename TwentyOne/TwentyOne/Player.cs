@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    class Player
+    public class Player
     {
         //Constructor that takes 2 parameters: A name and a beginning balance and it will assign some values
         public Player(string name, int beginningBalance)
@@ -15,7 +15,8 @@ namespace TwentyOne
             Balance = beginningBalance; //assigning the arguments (name and beginningbalance) and assigning them to properties of this object.
             Name = name;
         }
-        public List <Card> Hand { get; set; }
+        private List<Card> _hand = new List<Card>();
+        public List <Card> Hand { get { return _hand; } set { _hand = value; } }
         public int Balance { get; set; }
         public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }

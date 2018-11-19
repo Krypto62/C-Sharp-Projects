@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TwentyOne
 {
@@ -29,7 +30,7 @@ namespace TwentyOne
                 game += player; //We are adding player to the game
                 player.isActivelyPlaying = true; //used in "while" loop... While player is actively playing, play the game
                 
-                //checks if player is wanting to still play and also has enough money to play.
+                //Checks if player is wanting to still play and also has enough money to play.
                 //As long as these two conditions are met, this loop will continue.
                 while (player.isActivelyPlaying && player.Balance > 0)
                 {
