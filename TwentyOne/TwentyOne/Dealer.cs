@@ -24,6 +24,7 @@ namespace TwentyOne
             //By design, the "using" statement cleans itself up after file is written.
             using (StreamWriter file = new StreamWriter(@"C:\Users\scfow\logs\log.txt", true))
             {
+                file.WriteLine(DateTime.Now); //Write the current date and time to file
                 file.WriteLine(card); //Write (append) card to the file
             } //StreamWriter cleans itself up when it hits this ending bracket
             Deck.Cards.RemoveAt(0);
