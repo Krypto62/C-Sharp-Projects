@@ -11,9 +11,10 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
+            const string casinoName = "Grand Hotel and Casino";
+            Console.WriteLine("Welcome to the {0}. Let's start by telling me your name", casinoName);
+            Guid identifier = Guid.NewGuid();
 
-
-            Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name");
             string playerName = Console.ReadLine();
             Console.WriteLine("And how much money did you bring today?");
             int bank = Convert.ToInt32(Console.ReadLine());
@@ -23,6 +24,12 @@ namespace TwentyOne
             {
                 //Player object with 2 values: playerName and bank. "We created a player"
                 Player player = new Player(playerName, bank); //if user wants to play, we initialize him with playerName and bank, which is the beginning balance.
+
+                player.Id = Guid.NewGuid();
+                using (StreamWriter file = new StreamWriter(@"C:\Users\scfow\logs\log.txt", true))
+                {
+                    file.WriteLine(player.Id); //Write the player's Guid to file 
+                }
 
                 //We created a player, now we create a game.
                 Game game = new TwentyOneGame(); //polymorphism happening here. exposes those operators we overloaded earlier

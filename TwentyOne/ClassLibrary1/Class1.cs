@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace ClassLibrary1
 {
-    class IWalkAway
+    public class Class1
     {
     }
 }

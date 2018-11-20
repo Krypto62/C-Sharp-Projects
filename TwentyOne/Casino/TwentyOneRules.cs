@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino.TwentyOne
 {
     public class TwentyOneRules  //basic helper methods located here
     {
@@ -89,7 +89,7 @@ namespace TwentyOne
             return false; //If it makes it down here, dealer shouldn't stay
         }
         
-        public static bool? CompareHands(List<Card> PlayerHand, List<Card> DealerCard)
+        public static bool? CompareHands(List<Card> PlayerHand, List<Card> DealerHand)
         {
             //Get int array of all possible players by passing in the player's hand. Do the same for dealer.
             int[] playerResults = GetAllPossibleHandValues(PlayerHand);

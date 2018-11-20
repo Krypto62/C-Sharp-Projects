@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino
 {
     public class Player
     {
@@ -21,6 +21,7 @@ namespace TwentyOne
         public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }
         public bool Stay { get; set; } //this property could be specific to 21
+        public Guid Id { get; set; }
 
         //Player is doing the betting so this logic is located in this Player class
         public bool Bet(int amount)
@@ -39,6 +40,11 @@ namespace TwentyOne
         }
 
         public static Game operator +(Game game, Player player)
+        {
+            game.Players.Add(player);
+            return game;
+        }
+        public static Game operator -(Game game, Player player)
         {
             game.Players.Remove(player);
             return game;
