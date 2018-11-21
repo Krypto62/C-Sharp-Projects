@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using Casino;
 using Casino.TwentyOne;
@@ -17,7 +16,21 @@ namespace TwentyOne
             Console.WriteLine("Welcome to the {0}. Let's start by telling me your name", casinoName);
             Guid identifier = Guid.NewGuid();
             string playerName = Console.ReadLine();
-
+            if (playerName.ToLower() == "admin")
+            {
+                //Reads all exceptions from the Db and assigns it this list here
+                List<ExceptionEntity> Exceptions = ReadExceptions();
+                foreach (var exception in Exceptions) //Loop through them once we have them
+                {
+                    Console.WriteLine(exception.Id + " | ");
+                    Console.WriteLine(exception.ExceptionType + " | ");
+                    Console.WriteLine(exception.ExceptionMessage + " | ");
+                    Console.WriteLine(exception.TimeStamp + " | ");
+                    Console.WriteLine();
+                }
+                Console.Read();
+                return;
+            }
             bool validAnswer = false;
             int bank = 0;
             while (!validAnswer)
@@ -54,16 +67,18 @@ namespace TwentyOne
                     {
                         game.Play();
                     }
-                    catch (FraudException)
+                    catch (FraudException ex)
                     {
-                        Console.WriteLine("Security! Kick this person out.");
+                        Console.WriteLine(ex.Message);
+                        UpdateDbWithException(ex);
                         Console.ReadLine();
                         return; //Ends the program since this is in a void method and can' return anything.
                     }
 
-                    catch (Exception) //Catches all exceptions with this generic exception
+                    catch (Exception ex) //Catches all exceptions with this generic exception
                     {
                         Console.WriteLine("An error occured. Please contact your System Administrator.");
+                        UpdateDbWithException(ex);
                         Console.ReadLine();
                         return; //Ends the program since this is in a void method and can' return anything.
                     }
@@ -76,9 +91,65 @@ namespace TwentyOne
             Console.WriteLine("Feel free to look around the casino. Bye for now");
             Console.Read();
         }
-        //private static void UpdateDbWithException(Exception ex)
-        //{
-            //Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = TwentyOneGame; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False;
-        //}
+
+        private static void UpdateDbWithException(Exception ex)
+        {
+            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = TwentyOneGame;
+                                        Integrated Security = True; Connect Timeout = 30; Encrypt = False;
+                                        TrustServerCertificate = False; ApplicationIntent = ReadWrite;
+                                        MultiSubnetFailover = False";
+
+            string queryString = @"INSERT INTO Exceptions (ExceptionType, ExceptionMessage, TimeStamp) VALUES
+                                    (@ExceptionType, @ExceptionMessage, @TimeStamp)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add("@ExceptionType", SqlDbType.VarChar);
+                command.Parameters.Add("@ExceptionMessage", SqlDbType.VarChar);
+                command.Parameters.Add("@TimeStamp", SqlDbType.DateTime);
+
+                command.Parameters["@ExceptionType"].Value = ex.GetType().ToString();
+                command.Parameters["@ExceptionMessage"].Value = ex.Message;
+                command.Parameters["@TimeStamp"].Value = DateTime.Now;
+
+                //Send to the database
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        private static List<ExceptionEntity> ReadExceptions()
+        {
+            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = TwentyOneGame;
+                                        Integrated Security = True; Connect Timeout = 30; Encrypt = False;
+                                        TrustServerCertificate = False; ApplicationIntent = ReadWrite;
+                                        MultiSubnetFailover = False";
+
+            //Basically asking for everything w/o a "where" clause
+            string queryString = @"Select Id, ExceptionType, ExceptionMessage, TimeStamp From Exceptions";
+
+            List<ExceptionEntity> Exceptions = new List<ExceptionEntity>(); //Empty list that will return.
+
+            //Open up the connection
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection); //Pass in our connection string
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) //while reader is open for each object...
+                {
+                    ExceptionEntity exception = new ExceptionEntity(); //map what we are getting back to our object
+                    exception.Id = Convert.ToInt32(reader["Id"]);
+                    exception.ExceptionType = reader["ExceptionType"].ToString();
+                    exception.ExceptionMessage = reader["ExceptionMessage"].ToString();
+                    exception.TimeStamp = Convert.ToDateTime(reader["TimeStamp"]);
+                    Exceptions.Add(exception);
+                }
+                connection.Close();
+            }
+
+            return Exceptions; //Returns a list of Exception entities.
+        }
     }
 }
