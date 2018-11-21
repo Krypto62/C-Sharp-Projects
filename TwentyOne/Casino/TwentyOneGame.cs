@@ -32,13 +32,24 @@ namespace Casino.TwentyOne
             //this refreshes the deck each time.
             Dealer.Deck = new Deck();
             Dealer.Deck.Shuffle();
+
             Console.WriteLine("Place your bet!");
 
             //In placing a bet, we want to loop through each player and them place a bet
             foreach (Player player in Players)
             {
-                //Throw a section on the screen where the user will enter their bet
-                int bet = Convert.ToInt32(Console.ReadLine());
+                bool validAnswer = false;
+                int bet = 0;
+                while (!validAnswer)
+                {
+                    Console.WriteLine("Place your bet!");
+                    validAnswer = int.TryParse(Console.ReadLine(), out bet);
+                    if (!validAnswer) Console.WriteLine("Please enter digits only, no decimals.");
+                }
+                if (bet < 0)
+                {
+                    throw new FraudException();
+                }
                 bool successfullyBet = player.Bet(bet); //Pass the amount the user entered into the bet method
                 if (!successfullyBet) //Same as "if successfullyBet == false"
                 {
@@ -210,12 +221,12 @@ namespace Casino.TwentyOne
         }
         public override void ListPlayers()
         {
-            Console.WriteLine("21 Players:")
+            Console.WriteLine("21 Players:");
             base.ListPlayers();
         }
         public void WalkAway(Player player)
         {
-            throw new NotFiniteNumberException...
+            throw new NotFiniteNumberException();
         }
     }
 }
