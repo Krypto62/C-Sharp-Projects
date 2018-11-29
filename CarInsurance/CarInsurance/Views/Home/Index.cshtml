@@ -1,0 +1,53 @@
+﻿<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Please provide your information below</h5>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("NewQuote", "Home", FormMethod.Post))
+            {
+            <div class="row no-gutters">
+                <div class="form-group col-md-12">
+                    <input name="FirstName" type="text" class="form-control" placeholder="First Name" />
+                </div>
+                <div class="form-group col-md-12">
+                    <input name="LastName" type="text" class="form-control" placeholder="Last Name" />
+                </div>
+                <div class="form-group col-md-12">
+                    <input name="EmailAddress" type="email" class="form-control" placeholder="Email Address" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="DateofBirth" type="text" class="form-control" placeholder="Date of Birth mm-dd-yyyy" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="CarYear" type="number" class="form-control" placeholder="Car Year" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="CarMake" type="text" class="form-control" placeholder="Car Make" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="CarModel" type="text" class="form-control" placeholder="Car Model" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="DUI" type="text" class="form-control" placeholder="Have you ever had a DUI? Enter Yes or No" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="Tickets" type="number" class="form-control" placeholder="Number of Tickets" />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <input name="Coverage" type="text" class="form-control" placeholder="What type of coverage would you like? Enter Full or Liability" />
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary">Submit</button>
+            </div>
+            }
+        </div>
+    </div>
+</div>
