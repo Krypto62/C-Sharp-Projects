@@ -2,46 +2,24 @@
 @model List<CarInsuranceNewQuote>
 
 <div class="row no-gutters md-9">
-    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+    <div class="card col-sm-11 mx-auto shadow offset-md-2 col-md-11 col-lg-11" style="">
         <div class="card-header text-center">
-            <h5 class="m-0">New Quotes</h5>
+            <h2 class="m-0">New Quotes</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body w-100">
             @foreach (var quote in Model)
-            {
-            <div class="row">
-                <div class="col-1">
-                    @quote.FirstName
-                </div>
-                <div class="col-2">
-                    @quote.LastName
-                </div>
-                <div class="col-2">
-                    @quote.EmailAddress
-                </div>
-                <div class="col-2">
-                    @quote.DateOfBirth
-                </div>
-                <div class="col">
-                    @quote.CarYear
-                </div>
-                <div class="col-1">
-                    @quote.CarMake
-                </div>
-                <div class="col-1">
-                    @quote.CarModel
-                </div>
-                <div class="col">
-                    @quote.DUI
-                </div>
-                <div class="col">
-                    @quote.Coverage
-                </div>
-
-            </div>
-            }
-
+            {<div class="row">
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.FirstName</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.LastName</h5></div>
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2"><h5>@quote.EmailAddress</h5></div>
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2"><h5>@quote.DateOfBirth</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.CarYear</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.CarMake</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.CarModel</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.DUI</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.Tickets</h5></div>
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@quote.Coverage </div>
+</div>}
         </div>
-
     </div>
 </div>
