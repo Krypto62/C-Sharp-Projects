@@ -15,6 +15,5 @@ namespace CarInsurance.Models
         public int Tickets { get; set; }
         public string Coverage { get; set; }
         public int MonthlyTotal { get; set; }
-       
     }
 }
