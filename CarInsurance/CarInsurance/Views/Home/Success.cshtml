@@ -1,2 +1,19 @@
-﻿<h2>Success</h2>
+﻿@using CarInsurance.Models
+@model List<CarInsuranceNewQuote>
+<h1>CHEAPO INSURANCE</h1>
+<p></p>
+<h2>Thank you for your application!</h2>
+<br />
+<br />
+<h3>Your calculated monthly total is shown below:</h3>
+
+<div class="card-body w-100">
+
+    <div class="row">
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@ViewBag.first</h5></div>
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@ViewBag.last</h5></div>
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1"><h5>@ViewBag.quote</h5></div>
+    </div>
+</div>
+
 

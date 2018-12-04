@@ -18,7 +18,7 @@ namespace CarInsurance.Models
         public string DUI { get; set; }
         public int Tickets { get; set; }
         public string Coverage { get; set; }
-        public int MoTotal { get; set; }
-        public object ViewBag { get; }
+        public int MonthlyTotal { get; set; }
+       
     }
 }
